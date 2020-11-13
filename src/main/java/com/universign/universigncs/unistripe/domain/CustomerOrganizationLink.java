@@ -22,34 +22,38 @@ public class CustomerOrganizationLink implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "organisation_id")
-    private String organisationId;
-
     /**
      * the organisation identifier
      */
     @ApiModelProperty(value = "the organisation identifier")
-    @Column(name = "organisation_name")
-    private String organisationName;
+    @Column(name = "organisation_id")
+    private String organisationId;
 
     /**
      * the organisation name
      */
     @ApiModelProperty(value = "the organisation name")
-    @Column(name = "organisation_register_date")
-    private LocalDate organisationRegisterDate;
+    @Column(name = "organisation_name")
+    private String organisationName;
 
     /**
      * the organisation register date
      */
     @ApiModelProperty(value = "the organisation register date")
-    @Column(name = "customer_id")
-    private String customerId;
+    @Column(name = "organisation_register_date")
+    private LocalDate organisationRegisterDate;
 
     /**
      * the customer identifier
      */
     @ApiModelProperty(value = "the customer identifier")
+    @Column(name = "customer_id")
+    private String customerId;
+
+    /**
+     * the customer name
+     */
+    @ApiModelProperty(value = "the customer name")
     @Column(name = "customer_name")
     private String customerName;
 

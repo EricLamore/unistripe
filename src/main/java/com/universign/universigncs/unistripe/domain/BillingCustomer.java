@@ -22,82 +22,94 @@ public class BillingCustomer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tax_no")
-    private String taxNo;
-
     /**
      * the tax number of customer
      */
     @ApiModelProperty(value = "the tax number of customer")
-    @Column(name = "third_party_accounting_code")
-    private String thirdPartyAccountingCode;
+    @Column(name = "tax_no")
+    private String taxNo;
 
     /**
      * the third party accounting code of the customer
      */
     @ApiModelProperty(value = "the third party accounting code of the customer")
-    @Column(name = "siret")
-    private String siret;
+    @Column(name = "third_party_accounting_code")
+    private String thirdPartyAccountingCode;
 
     /**
      * the siret of the customer
      */
     @ApiModelProperty(value = "the siret of the customer")
-    @Column(name = "owner_id")
-    private String ownerId;
+    @Column(name = "siret")
+    private String siret;
 
     /**
      * the owner identifier of the customer
      */
     @ApiModelProperty(value = "the owner identifier of the customer")
-    @Column(name = "is_particular")
-    private Boolean isParticular;
+    @Column(name = "owner_id")
+    private String ownerId;
 
     /**
      * true if the customer is a particular, false otherwise
      */
     @ApiModelProperty(value = "true if the customer is a particular, false otherwise")
-    @Column(name = "partner")
-    private Boolean partner;
+    @Column(name = "is_particular")
+    private Boolean isParticular;
 
     /**
-     * ture if the customer is a partner, false otherwise
+     * true if the customer is a partner, false otherwise
      */
-    @ApiModelProperty(value = "ture if the customer is a partner, false otherwise")
-    @Column(name = "partner_id")
-    private String partnerId;
+    @ApiModelProperty(value = "true if the customer is a partner, false otherwise")
+    @Column(name = "partner")
+    private Boolean partner;
 
     /**
      * the partner identifier
      */
     @ApiModelProperty(value = "the partner identifier")
+    @Column(name = "partner_id")
+    private String partnerId;
+
+    /**
+     * the billing customer identifier
+     */
+    @ApiModelProperty(value = "the billing customer identifier")
     @Column(name = "customer_id")
     private String customerId;
 
     /**
-     * the customer identifier
+     * the billing name of the customer
      */
-    @ApiModelProperty(value = "the customer identifier")
+    @ApiModelProperty(value = "the billing name of the customer")
     @Column(name = "customer_name")
     private String customerName;
 
     /**
-     * the name of the customer
+     * the stripe customer identifier
      */
-    @ApiModelProperty(value = "the name of the customer")
+    @ApiModelProperty(value = "the stripe customer identifier")
     @Column(name = "stripe_id")
     private String stripeId;
 
+    /**
+     * the stripe email of the customer
+     */
+    @ApiModelProperty(value = "the stripe email of the customer")
     @Column(name = "stripe_email")
     private String stripeEmail;
-
-    @Column(name = "migrate_at")
-    private LocalDate migrateAt;
 
     /**
      * migration date to stripe
      */
     @ApiModelProperty(value = "migration date to stripe")
+    @Column(name = "migrate_at")
+    private LocalDate migrateAt;
+
+    /**
+     * migration update Date
+     */
+    @ApiModelProperty(value = "migration update Date")
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 

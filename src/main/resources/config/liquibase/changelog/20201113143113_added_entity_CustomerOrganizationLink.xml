@@ -16,19 +16,19 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="organisation_id" type="varchar(255)">
+            <column name="organisation_id" type="varchar(255)" remarks="the organisation identifier">
                 <constraints nullable="true" />
             </column>
-            <column name="organisation_name" type="varchar(255)" remarks="the organisation identifier">
+            <column name="organisation_name" type="varchar(255)" remarks="the organisation name">
                 <constraints nullable="true" />
             </column>
-            <column name="organisation_register_date" type="date" remarks="the organisation name">
+            <column name="organisation_register_date" type="date" remarks="the organisation register date">
                 <constraints nullable="true" />
             </column>
-            <column name="customer_id" type="varchar(255)" remarks="the organisation register date">
+            <column name="customer_id" type="varchar(255)" remarks="the customer identifier">
                 <constraints nullable="true" />
             </column>
-            <column name="customer_name" type="varchar(255)" remarks="the customer identifier">
+            <column name="customer_name" type="varchar(255)" remarks="the customer name">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

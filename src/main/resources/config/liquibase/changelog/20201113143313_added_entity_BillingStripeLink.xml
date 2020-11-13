@@ -12,26 +12,26 @@
         Added the entity BillingStripeLink.
     -->
     <changeSet id="20201113143313-1" author="jhipster">
-        <createTable tableName="billing_stripe_link" remarks="This class represents a light\nbilling customer\n@author Eric Lamore">
+        <createTable tableName="billing_stripe_link" remarks="This class represents a customer link beetween\nbilling and stripe\n@author Eric Lamore">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="stripe_id" type="varchar(255)">
+            <column name="stripe_id" type="varchar(255)" remarks="the stripe customer identifier">
                 <constraints nullable="true" />
             </column>
-            <column name="stripe_email" type="varchar(255)">
+            <column name="stripe_email" type="varchar(255)" remarks="the stripe email of the customer">
                 <constraints nullable="true" />
             </column>
-            <column name="customer_id" type="varchar(255)">
+            <column name="customer_id" type="varchar(255)" remarks="the billing customer identifier">
                 <constraints nullable="true" />
             </column>
-            <column name="customer_name" type="varchar(255)" remarks="the customer identifier">
+            <column name="customer_name" type="varchar(255)" remarks="the billing name of the customer">
                 <constraints nullable="true" />
             </column>
-            <column name="migrate_at" type="date" remarks="the name of the customer">
+            <column name="migrate_at" type="date" remarks="migration date to stripe">
                 <constraints nullable="true" />
             </column>
-            <column name="updated_at" type="date" remarks="migration date to stripe">
+            <column name="updated_at" type="date" remarks="migration update Date">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

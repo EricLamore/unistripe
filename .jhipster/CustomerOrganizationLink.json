@@ -3,27 +3,28 @@
   "fields": [
     {
       "fieldName": "organisationId",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "organisationName",
       "fieldType": "String",
       "javadoc": "the organisation identifier"
     },
     {
+      "fieldName": "organisationName",
+      "fieldType": "String",
+      "javadoc": "the organisation name"
+    },
+    {
       "fieldName": "organisationRegisterDate",
       "fieldType": "LocalDate",
-      "javadoc": "the organisation name"
+      "javadoc": "the organisation register date"
     },
     {
       "fieldName": "customerId",
       "fieldType": "String",
-      "javadoc": "the organisation register date"
+      "javadoc": "the customer identifier"
     },
     {
       "fieldName": "customerName",
       "fieldType": "String",
-      "javadoc": "the customer identifier"
+      "javadoc": "the customer name"
     }
   ],
   "relationships": [],

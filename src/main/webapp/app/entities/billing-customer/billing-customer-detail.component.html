@@ -8,55 +8,55 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span>Tax No</span></dt>
+                <dt><span ngbTooltip="the tax number of customer">Tax No</span></dt>
                 <dd>
                     <span>{{ billingCustomer.taxNo }}</span>
                 </dd>
-                <dt><span ngbTooltip="the tax number of customer">Third Party Accounting Code</span></dt>
+                <dt><span ngbTooltip="the third party accounting code of the customer">Third Party Accounting Code</span></dt>
                 <dd>
                     <span>{{ billingCustomer.thirdPartyAccountingCode }}</span>
                 </dd>
-                <dt><span ngbTooltip="the third party accounting code of the customer">Siret</span></dt>
+                <dt><span ngbTooltip="the siret of the customer">Siret</span></dt>
                 <dd>
                     <span>{{ billingCustomer.siret }}</span>
                 </dd>
-                <dt><span ngbTooltip="the siret of the customer">Owner Id</span></dt>
+                <dt><span ngbTooltip="the owner identifier of the customer">Owner Id</span></dt>
                 <dd>
                     <span>{{ billingCustomer.ownerId }}</span>
                 </dd>
-                <dt><span ngbTooltip="the owner identifier of the customer">Is Particular</span></dt>
+                <dt><span ngbTooltip="true if the customer is a particular, false otherwise">Is Particular</span></dt>
                 <dd>
                     <span>{{ billingCustomer.isParticular }}</span>
                 </dd>
-                <dt><span ngbTooltip="true if the customer is a particular, false otherwise">Partner</span></dt>
+                <dt><span ngbTooltip="true if the customer is a partner, false otherwise">Partner</span></dt>
                 <dd>
                     <span>{{ billingCustomer.partner }}</span>
                 </dd>
-                <dt><span ngbTooltip="ture if the customer is a partner, false otherwise">Partner Id</span></dt>
+                <dt><span ngbTooltip="the partner identifier">Partner Id</span></dt>
                 <dd>
                     <span>{{ billingCustomer.partnerId }}</span>
                 </dd>
-                <dt><span ngbTooltip="the partner identifier">Customer Id</span></dt>
+                <dt><span ngbTooltip="the billing customer identifier">Customer Id</span></dt>
                 <dd>
                     <span>{{ billingCustomer.customerId }}</span>
                 </dd>
-                <dt><span ngbTooltip="the customer identifier">Customer Name</span></dt>
+                <dt><span ngbTooltip="the billing name of the customer">Customer Name</span></dt>
                 <dd>
                     <span>{{ billingCustomer.customerName }}</span>
                 </dd>
-                <dt><span ngbTooltip="the name of the customer">Stripe Id</span></dt>
+                <dt><span ngbTooltip="the stripe customer identifier">Stripe Id</span></dt>
                 <dd>
                     <span>{{ billingCustomer.stripeId }}</span>
                 </dd>
-                <dt><span>Stripe Email</span></dt>
+                <dt><span ngbTooltip="the stripe email of the customer">Stripe Email</span></dt>
                 <dd>
                     <span>{{ billingCustomer.stripeEmail }}</span>
                 </dd>
-                <dt><span>Migrate At</span></dt>
+                <dt><span ngbTooltip="migration date to stripe">Migrate At</span></dt>
                 <dd>
                     <span>{{ billingCustomer.migrateAt }}</span>
                 </dd>
-                <dt><span ngbTooltip="migration date to stripe">Updated At</span></dt>
+                <dt><span ngbTooltip="migration update Date">Updated At</span></dt>
                 <dd>
                     <span>{{ billingCustomer.updatedAt }}</span>
                 </dd>
