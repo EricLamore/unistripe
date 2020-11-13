@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span>Billing Customers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-billing-customer" [routerLink]="['/billing-customer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Billing Customer
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="billingCustomers?.length === 0">
+        <span>No billingCustomers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="billingCustomers && billingCustomers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Tax No</span></th>
+                    <th scope="col" ><span>Third Party Accounting Code</span></th>
+                    <th scope="col" ><span>Siret</span></th>
+                    <th scope="col" ><span>Owner Id</span></th>
+                    <th scope="col" ><span>Is Particular</span></th>
+                    <th scope="col" ><span>Partner</span></th>
+                    <th scope="col" ><span>Partner Id</span></th>
+                    <th scope="col" ><span>Customer Id</span></th>
+                    <th scope="col" ><span>Customer Name</span></th>
+                    <th scope="col" ><span>Stripe Id</span></th>
+                    <th scope="col" ><span>Stripe Email</span></th>
+                    <th scope="col" ><span>Migrate At</span></th>
+                    <th scope="col" ><span>Updated At</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let billingCustomer of billingCustomers ;trackBy: trackId">
+                    <td><a [routerLink]="['/billing-customer', billingCustomer.id, 'view']">{{ billingCustomer.id }}</a></td>
+                    <td>{{ billingCustomer.taxNo }}</td>
+                    <td>{{ billingCustomer.thirdPartyAccountingCode }}</td>
+                    <td>{{ billingCustomer.siret }}</td>
+                    <td>{{ billingCustomer.ownerId }}</td>
+                    <td>{{ billingCustomer.isParticular }}</td>
+                    <td>{{ billingCustomer.partner }}</td>
+                    <td>{{ billingCustomer.partnerId }}</td>
+                    <td>{{ billingCustomer.customerId }}</td>
+                    <td>{{ billingCustomer.customerName }}</td>
+                    <td>{{ billingCustomer.stripeId }}</td>
+                    <td>{{ billingCustomer.stripeEmail }}</td>
+                    <td>{{ billingCustomer.migrateAt | date:'mediumDate' }}</td>
+                    <td>{{ billingCustomer.updatedAt | date:'mediumDate' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/billing-customer', billingCustomer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/billing-customer', billingCustomer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(billingCustomer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

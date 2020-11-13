@@ -1,0 +1,45 @@
+{
+  "name": "BillingStripeLink",
+  "fields": [
+    {
+      "fieldName": "stripeId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stripeEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String",
+      "javadoc": "the customer identifier"
+    },
+    {
+      "fieldName": "migrateAt",
+      "fieldType": "LocalDate",
+      "javadoc": "the name of the customer"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate",
+      "javadoc": "migration date to stripe"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201113143313",
+  "javadoc": "This class represents a light\\nbilling customer\\n@author Eric Lamore",
+  "entityTableName": "billing_stripe_link",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

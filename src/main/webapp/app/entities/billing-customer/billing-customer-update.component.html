@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-billing-customer-heading">Create or edit a Billing Customer</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_taxNo">Tax No</label>
+                    <input type="text" class="form-control" name="taxNo" id="field_taxNo"
+                           formControlName="taxNo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_thirdPartyAccountingCode" ngbTooltip="the tax number of customer">Third Party Accounting Code</label>
+                    <input type="text" class="form-control" name="thirdPartyAccountingCode" id="field_thirdPartyAccountingCode"
+                           formControlName="thirdPartyAccountingCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_siret" ngbTooltip="the third party accounting code of the customer">Siret</label>
+                    <input type="text" class="form-control" name="siret" id="field_siret"
+                           formControlName="siret"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ownerId" ngbTooltip="the siret of the customer">Owner Id</label>
+                    <input type="text" class="form-control" name="ownerId" id="field_ownerId"
+                           formControlName="ownerId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isParticular" ngbTooltip="the owner identifier of the customer">Is Particular</label>
+                    <input type="checkbox" class="form-control" name="isParticular" id="field_isParticular"
+                           formControlName="isParticular"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_partner" ngbTooltip="true if the customer is a particular, false otherwise">Partner</label>
+                    <input type="checkbox" class="form-control" name="partner" id="field_partner"
+                           formControlName="partner"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_partnerId" ngbTooltip="ture if the customer is a partner, false otherwise">Partner Id</label>
+                    <input type="text" class="form-control" name="partnerId" id="field_partnerId"
+                           formControlName="partnerId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customerId" ngbTooltip="the partner identifier">Customer Id</label>
+                    <input type="text" class="form-control" name="customerId" id="field_customerId"
+                           formControlName="customerId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customerName" ngbTooltip="the customer identifier">Customer Name</label>
+                    <input type="text" class="form-control" name="customerName" id="field_customerName"
+                           formControlName="customerName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stripeId" ngbTooltip="the name of the customer">Stripe Id</label>
+                    <input type="text" class="form-control" name="stripeId" id="field_stripeId"
+                           formControlName="stripeId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stripeEmail">Stripe Email</label>
+                    <input type="text" class="form-control" name="stripeEmail" id="field_stripeEmail"
+                           formControlName="stripeEmail"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_migrateAt">Migrate At</label>
+                    <div class="input-group">
+                        <input id="field_migrateAt" type="text" class="form-control" name="migrateAt" ngbDatepicker #migrateAtDp="ngbDatepicker" formControlName="migrateAt"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="migrateAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updatedAt" ngbTooltip="migration date to stripe">Updated At</label>
+                    <div class="input-group">
+                        <input id="field_updatedAt" type="text" class="form-control" name="updatedAt" ngbDatepicker #updatedAtDp="ngbDatepicker" formControlName="updatedAt"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="updatedAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

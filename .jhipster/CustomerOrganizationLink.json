@@ -1,0 +1,42 @@
+{
+  "name": "CustomerOrganizationLink",
+  "fields": [
+    {
+      "fieldName": "organisationId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "organisationName",
+      "fieldType": "String",
+      "javadoc": "the organisation identifier"
+    },
+    {
+      "fieldName": "organisationRegisterDate",
+      "fieldType": "LocalDate",
+      "javadoc": "the organisation name"
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "String",
+      "javadoc": "the organisation register date"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String",
+      "javadoc": "the customer identifier"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201113143113",
+  "javadoc": "This class reprensents a link between a billing customer\\nand one of the customer's organization\\n@author Eric Lamore",
+  "entityTableName": "customer_organization_link",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

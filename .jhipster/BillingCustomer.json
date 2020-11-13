@@ -1,0 +1,80 @@
+{
+  "name": "BillingCustomer",
+  "fields": [
+    {
+      "fieldName": "taxNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "thirdPartyAccountingCode",
+      "fieldType": "String",
+      "javadoc": "the tax number of customer"
+    },
+    {
+      "fieldName": "siret",
+      "fieldType": "String",
+      "javadoc": "the third party accounting code of the customer"
+    },
+    {
+      "fieldName": "ownerId",
+      "fieldType": "String",
+      "javadoc": "the siret of the customer"
+    },
+    {
+      "fieldName": "isParticular",
+      "fieldType": "Boolean",
+      "javadoc": "the owner identifier of the customer"
+    },
+    {
+      "fieldName": "partner",
+      "fieldType": "Boolean",
+      "javadoc": "true if the customer is a particular, false otherwise"
+    },
+    {
+      "fieldName": "partnerId",
+      "fieldType": "String",
+      "javadoc": "ture if the customer is a partner, false otherwise"
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "String",
+      "javadoc": "the partner identifier"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String",
+      "javadoc": "the customer identifier"
+    },
+    {
+      "fieldName": "stripeId",
+      "fieldType": "String",
+      "javadoc": "the name of the customer"
+    },
+    {
+      "fieldName": "stripeEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "migrateAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate",
+      "javadoc": "migration date to stripe"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201113143213",
+  "javadoc": "This class represents a light\\nbilling customer\\n@author Eric Lamore",
+  "entityTableName": "billing_customer",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

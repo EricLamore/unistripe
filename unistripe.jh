@@ -1,0 +1,97 @@
+enum StatusType {
+	NONE,
+    ON_GOING,
+    FAILED,
+    DONE
+}
+
+/**
+ * This class an event uses
+ * @author Eric Lamore
+ */
+entity EventUses {
+	cusotmerId String,
+    customerName String,
+    subscriptionId String,
+    subscriptionName String,
+    productId String,
+    productName String,
+    month Integer,
+    year Integer,
+    status StatusType,
+    error String,
+    total Long
+}
+
+/**
+ * This class a product
+ * @author Eric Lamore
+ */
+entity Product {
+	productName String,
+    productId String,
+    calculator String
+}
+
+/**
+ * This class reprensents a link between a billing customer
+ * and one of the customer's organization
+ * @author Eric Lamore
+ */
+entity CustomerOrganizationLink
+{
+    organisationId String, /** the organisation identifier */
+	organisationName String, /** the organisation name */
+	organisationRegisterDate LocalDate, /** the organisation register date */
+	customerId String, /** the customer identifier */
+    customerName String /** the customer name */
+}
+
+/**
+ * This class represents a light
+ * billing customer
+ * @author Eric Lamore
+ */
+entity BillingCustomer {
+	taxNo String, /** the tax number of customer */
+	thirdPartyAccountingCode String, /** the third party accounting code of the customer */
+	siret String, /** the siret of the customer */
+	ownerId String, /** the owner identifier of the customer */
+	isParticular Boolean, /** true if the customer is a particular, false otherwise */
+	partner Boolean, /** ture if the customer is a partner, false otherwise */
+	partnerId String, /** the partner identifier */
+	customerId String, /** the customer identifier */
+	customerName String, /** the name of the customer */
+    stripeId String,
+    stripeEmail String,
+    migrateAt LocalDate, /** migration date to stripe */
+    updatedAt LocalDate /** migration update Date*/
+}
+
+/**
+ * This class represents a light
+ * billing customer
+ * @author Eric Lamore
+ */
+entity BillingStripeLink {
+	stripeId String,
+    stripeEmail String,
+	customerId String, /** the customer identifier */
+	customerName String, /** the name of the customer */
+    migrateAt LocalDate, /** migration date to stripe */
+    updatedAt LocalDate /** migration update Date*/
+}
+
+
+
+
+// Set pagination options
+paginate BillingStripeLink with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except BillingStripeLink, BillingCustomer
+// Set an angular suffix
+// angularSuffix * with mySuffix
