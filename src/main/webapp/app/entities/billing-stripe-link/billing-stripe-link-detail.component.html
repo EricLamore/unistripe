@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billingStripeLink">
+            <h2><span>Billing Stripe Link</span> {{ billingStripeLink.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Stripe Id</span></dt>
+                <dd>
+                    <span>{{ billingStripeLink.stripeId }}</span>
+                </dd>
+                <dt><span>Stripe Email</span></dt>
+                <dd>
+                    <span>{{ billingStripeLink.stripeEmail }}</span>
+                </dd>
+                <dt><span>Customer Id</span></dt>
+                <dd>
+                    <span>{{ billingStripeLink.customerId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the customer identifier">Customer Name</span></dt>
+                <dd>
+                    <span>{{ billingStripeLink.customerName }}</span>
+                </dd>
+                <dt><span ngbTooltip="the name of the customer">Migrate At</span></dt>
+                <dd>
+                    <span>{{ billingStripeLink.migrateAt }}</span>
+                </dd>
+                <dt><span ngbTooltip="migration date to stripe">Updated At</span></dt>
+                <dd>
+                    <span>{{ billingStripeLink.updatedAt }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-stripe-link', billingStripeLink.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

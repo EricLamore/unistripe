@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerOrganizationLink">
+            <h2><span>Customer Organization Link</span> {{ customerOrganizationLink.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Organisation Id</span></dt>
+                <dd>
+                    <span>{{ customerOrganizationLink.organisationId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation identifier">Organisation Name</span></dt>
+                <dd>
+                    <span>{{ customerOrganizationLink.organisationName }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation name">Organisation Register Date</span></dt>
+                <dd>
+                    <span>{{ customerOrganizationLink.organisationRegisterDate }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation register date">Customer Id</span></dt>
+                <dd>
+                    <span>{{ customerOrganizationLink.customerId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the customer identifier">Customer Name</span></dt>
+                <dd>
+                    <span>{{ customerOrganizationLink.customerName }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-organization-link', customerOrganizationLink.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+{
+  "name": "EventUses",
+  "fields": [
+    {
+      "fieldName": "cusotmerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subscriptionId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subscriptionName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusType",
+      "fieldValues": "NONE,ON_GOING,FAILED,DONE"
+    },
+    {
+      "fieldName": "error",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201113142913",
+  "javadoc": "This class an event uses\\n@author Eric Lamore",
+  "entityTableName": "event_uses",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
