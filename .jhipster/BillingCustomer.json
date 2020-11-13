@@ -3,65 +3,68 @@
   "fields": [
     {
       "fieldName": "taxNo",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "thirdPartyAccountingCode",
       "fieldType": "String",
       "javadoc": "the tax number of customer"
     },
     {
-      "fieldName": "siret",
+      "fieldName": "thirdPartyAccountingCode",
       "fieldType": "String",
       "javadoc": "the third party accounting code of the customer"
     },
     {
-      "fieldName": "ownerId",
+      "fieldName": "siret",
       "fieldType": "String",
       "javadoc": "the siret of the customer"
     },
     {
-      "fieldName": "isParticular",
-      "fieldType": "Boolean",
+      "fieldName": "ownerId",
+      "fieldType": "String",
       "javadoc": "the owner identifier of the customer"
     },
     {
-      "fieldName": "partner",
+      "fieldName": "isParticular",
       "fieldType": "Boolean",
       "javadoc": "true if the customer is a particular, false otherwise"
     },
     {
-      "fieldName": "partnerId",
-      "fieldType": "String",
-      "javadoc": "ture if the customer is a partner, false otherwise"
+      "fieldName": "partner",
+      "fieldType": "Boolean",
+      "javadoc": "true if the customer is a partner, false otherwise"
     },
     {
-      "fieldName": "customerId",
+      "fieldName": "partnerId",
       "fieldType": "String",
       "javadoc": "the partner identifier"
     },
     {
+      "fieldName": "customerId",
+      "fieldType": "String",
+      "javadoc": "the billing customer identifier"
+    },
+    {
       "fieldName": "customerName",
       "fieldType": "String",
-      "javadoc": "the customer identifier"
+      "javadoc": "the billing name of the customer"
     },
     {
       "fieldName": "stripeId",
       "fieldType": "String",
-      "javadoc": "the name of the customer"
+      "javadoc": "the stripe customer identifier"
     },
     {
       "fieldName": "stripeEmail",
-      "fieldType": "String"
+      "fieldType": "String",
+      "javadoc": "the stripe email of the customer"
     },
     {
       "fieldName": "migrateAt",
-      "fieldType": "LocalDate"
+      "fieldType": "LocalDate",
+      "javadoc": "migration date to stripe"
     },
     {
       "fieldName": "updatedAt",
       "fieldType": "LocalDate",
-      "javadoc": "migration date to stripe"
+      "javadoc": "migration update Date"
     }
   ],
   "relationships": [],

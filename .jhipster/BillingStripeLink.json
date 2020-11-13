@@ -3,35 +3,38 @@
   "fields": [
     {
       "fieldName": "stripeId",
-      "fieldType": "String"
+      "fieldType": "String",
+      "javadoc": "the stripe customer identifier"
     },
     {
       "fieldName": "stripeEmail",
-      "fieldType": "String"
+      "fieldType": "String",
+      "javadoc": "the stripe email of the customer"
     },
     {
       "fieldName": "customerId",
-      "fieldType": "String"
+      "fieldType": "String",
+      "javadoc": "the billing customer identifier"
     },
     {
       "fieldName": "customerName",
       "fieldType": "String",
-      "javadoc": "the customer identifier"
+      "javadoc": "the billing name of the customer"
     },
     {
       "fieldName": "migrateAt",
       "fieldType": "LocalDate",
-      "javadoc": "the name of the customer"
+      "javadoc": "migration date to stripe"
     },
     {
       "fieldName": "updatedAt",
       "fieldType": "LocalDate",
-      "javadoc": "migration date to stripe"
+      "javadoc": "migration update Date"
     }
   ],
   "relationships": [],
   "changelogDate": "20201113143313",
-  "javadoc": "This class represents a light\\nbilling customer\\n@author Eric Lamore",
+  "javadoc": "This class represents a customer link beetween\\nbilling and stripe\\n@author Eric Lamore",
   "entityTableName": "billing_stripe_link",
   "dto": "no",
   "pagination": "pagination",

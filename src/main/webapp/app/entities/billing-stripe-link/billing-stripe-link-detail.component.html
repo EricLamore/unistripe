@@ -8,27 +8,27 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span>Stripe Id</span></dt>
+                <dt><span ngbTooltip="the stripe customer identifier">Stripe Id</span></dt>
                 <dd>
                     <span>{{ billingStripeLink.stripeId }}</span>
                 </dd>
-                <dt><span>Stripe Email</span></dt>
+                <dt><span ngbTooltip="the stripe email of the customer">Stripe Email</span></dt>
                 <dd>
                     <span>{{ billingStripeLink.stripeEmail }}</span>
                 </dd>
-                <dt><span>Customer Id</span></dt>
+                <dt><span ngbTooltip="the billing customer identifier">Customer Id</span></dt>
                 <dd>
                     <span>{{ billingStripeLink.customerId }}</span>
                 </dd>
-                <dt><span ngbTooltip="the customer identifier">Customer Name</span></dt>
+                <dt><span ngbTooltip="the billing name of the customer">Customer Name</span></dt>
                 <dd>
                     <span>{{ billingStripeLink.customerName }}</span>
                 </dd>
-                <dt><span ngbTooltip="the name of the customer">Migrate At</span></dt>
+                <dt><span ngbTooltip="migration date to stripe">Migrate At</span></dt>
                 <dd>
                     <span>{{ billingStripeLink.migrateAt }}</span>
                 </dd>
-                <dt><span ngbTooltip="migration date to stripe">Updated At</span></dt>
+                <dt><span ngbTooltip="migration update Date">Updated At</span></dt>
                 <dd>
                     <span>{{ billingStripeLink.updatedAt }}</span>
                 </dd>

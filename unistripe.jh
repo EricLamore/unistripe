@@ -40,11 +40,16 @@ entity Product {
  */
 entity CustomerOrganizationLink
 {
-    organisationId String, /** the organisation identifier */
-	organisationName String, /** the organisation name */
-	organisationRegisterDate LocalDate, /** the organisation register date */
-	customerId String, /** the customer identifier */
-    customerName String /** the customer name */
+	/** the organisation identifier */
+    organisationId String, 
+    /** the organisation name */
+	organisationName String, 
+    /** the organisation register date */
+	organisationRegisterDate LocalDate, 
+     /** the customer identifier */
+	customerId String,
+    /** the customer name */
+    customerName String 
 }
 
 /**
@@ -53,33 +58,52 @@ entity CustomerOrganizationLink
  * @author Eric Lamore
  */
 entity BillingCustomer {
-	taxNo String, /** the tax number of customer */
-	thirdPartyAccountingCode String, /** the third party accounting code of the customer */
-	siret String, /** the siret of the customer */
-	ownerId String, /** the owner identifier of the customer */
-	isParticular Boolean, /** true if the customer is a particular, false otherwise */
-	partner Boolean, /** ture if the customer is a partner, false otherwise */
-	partnerId String, /** the partner identifier */
-	customerId String, /** the customer identifier */
-	customerName String, /** the name of the customer */
+	/** the tax number of customer */
+    taxNo String, 
+    /** the third party accounting code of the customer */
+	thirdPartyAccountingCode String, 
+	/** the siret of the customer */
+    siret String, 
+	/** the owner identifier of the customer */
+    ownerId String, 
+    /** true if the customer is a particular, false otherwise */
+	isParticular Boolean, 
+    /** true if the customer is a partner, false otherwise */
+	partner Boolean, 
+    /** the partner identifier */
+	partnerId String, 
+    /** the billing customer identifier */
+	customerId String, 
+    /** the billing name of the customer */
+	customerName String, 
+    /** the stripe customer identifier */
     stripeId String,
+    /** the stripe email of the customer */
     stripeEmail String,
-    migrateAt LocalDate, /** migration date to stripe */
-    updatedAt LocalDate /** migration update Date*/
+    /** migration date to stripe */
+    migrateAt LocalDate,
+    /** migration update Date*/
+    updatedAt LocalDate 
 }
 
 /**
- * This class represents a light
- * billing customer
+ * This class represents a customer link beetween
+ * billing and stripe
  * @author Eric Lamore
  */
 entity BillingStripeLink {
-	stripeId String,
+	/** the stripe customer identifier */
+    stripeId String,
+    /** the stripe email of the customer */
     stripeEmail String,
-	customerId String, /** the customer identifier */
-	customerName String, /** the name of the customer */
-    migrateAt LocalDate, /** migration date to stripe */
-    updatedAt LocalDate /** migration update Date*/
+	/** the billing customer identifier */
+	customerId String, 
+    /** the billing name of the customer */
+	customerName String, 
+    /** migration date to stripe */
+    migrateAt LocalDate,
+    /** migration update Date*/
+    updatedAt LocalDate 
 }
 
 

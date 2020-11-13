@@ -9,9 +9,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * This class represents a light\nbilling customer\n@author Eric Lamore
+ * This class represents a customer link beetween\nbilling and stripe\n@author Eric Lamore
  */
-@ApiModel(description = "This class represents a light\nbilling customer\n@author Eric Lamore")
+@ApiModel(description = "This class represents a customer link beetween\nbilling and stripe\n@author Eric Lamore")
 @Entity
 @Table(name = "billing_stripe_link")
 public class BillingStripeLink implements Serializable {
@@ -22,33 +22,45 @@ public class BillingStripeLink implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * the stripe customer identifier
+     */
+    @ApiModelProperty(value = "the stripe customer identifier")
     @Column(name = "stripe_id")
     private String stripeId;
 
+    /**
+     * the stripe email of the customer
+     */
+    @ApiModelProperty(value = "the stripe email of the customer")
     @Column(name = "stripe_email")
     private String stripeEmail;
 
+    /**
+     * the billing customer identifier
+     */
+    @ApiModelProperty(value = "the billing customer identifier")
     @Column(name = "customer_id")
     private String customerId;
 
     /**
-     * the customer identifier
+     * the billing name of the customer
      */
-    @ApiModelProperty(value = "the customer identifier")
+    @ApiModelProperty(value = "the billing name of the customer")
     @Column(name = "customer_name")
     private String customerName;
-
-    /**
-     * the name of the customer
-     */
-    @ApiModelProperty(value = "the name of the customer")
-    @Column(name = "migrate_at")
-    private LocalDate migrateAt;
 
     /**
      * migration date to stripe
      */
     @ApiModelProperty(value = "migration date to stripe")
+    @Column(name = "migrate_at")
+    private LocalDate migrateAt;
+
+    /**
+     * migration update Date
+     */
+    @ApiModelProperty(value = "migration update Date")
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 

@@ -16,43 +16,43 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="tax_no" type="varchar(255)">
+            <column name="tax_no" type="varchar(255)" remarks="the tax number of customer">
                 <constraints nullable="true" />
             </column>
-            <column name="third_party_accounting_code" type="varchar(255)" remarks="the tax number of customer">
+            <column name="third_party_accounting_code" type="varchar(255)" remarks="the third party accounting code of the customer">
                 <constraints nullable="true" />
             </column>
-            <column name="siret" type="varchar(255)" remarks="the third party accounting code of the customer">
+            <column name="siret" type="varchar(255)" remarks="the siret of the customer">
                 <constraints nullable="true" />
             </column>
-            <column name="owner_id" type="varchar(255)" remarks="the siret of the customer">
+            <column name="owner_id" type="varchar(255)" remarks="the owner identifier of the customer">
                 <constraints nullable="true" />
             </column>
-            <column name="is_particular" type="boolean" remarks="the owner identifier of the customer">
+            <column name="is_particular" type="boolean" remarks="true if the customer is a particular, false otherwise">
                 <constraints nullable="true" />
             </column>
-            <column name="partner" type="boolean" remarks="true if the customer is a particular, false otherwise">
+            <column name="partner" type="boolean" remarks="true if the customer is a partner, false otherwise">
                 <constraints nullable="true" />
             </column>
-            <column name="partner_id" type="varchar(255)" remarks="ture if the customer is a partner, false otherwise">
+            <column name="partner_id" type="varchar(255)" remarks="the partner identifier">
                 <constraints nullable="true" />
             </column>
-            <column name="customer_id" type="varchar(255)" remarks="the partner identifier">
+            <column name="customer_id" type="varchar(255)" remarks="the billing customer identifier">
                 <constraints nullable="true" />
             </column>
-            <column name="customer_name" type="varchar(255)" remarks="the customer identifier">
+            <column name="customer_name" type="varchar(255)" remarks="the billing name of the customer">
                 <constraints nullable="true" />
             </column>
-            <column name="stripe_id" type="varchar(255)" remarks="the name of the customer">
+            <column name="stripe_id" type="varchar(255)" remarks="the stripe customer identifier">
                 <constraints nullable="true" />
             </column>
-            <column name="stripe_email" type="varchar(255)">
+            <column name="stripe_email" type="varchar(255)" remarks="the stripe email of the customer">
                 <constraints nullable="true" />
             </column>
-            <column name="migrate_at" type="date">
+            <column name="migrate_at" type="date" remarks="migration date to stripe">
                 <constraints nullable="true" />
             </column>
-            <column name="updated_at" type="date" remarks="migration date to stripe">
+            <column name="updated_at" type="date" remarks="migration update Date">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
