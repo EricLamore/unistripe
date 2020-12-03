@@ -38,7 +38,7 @@
   "entityTableName": "billing_stripe_link",
   "dto": "no",
   "pagination": "pagination",
-  "service": "no",
+  "service": "serviceImpl",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,
   "readOnly": false,
