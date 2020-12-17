@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productRatePlanPriceLink">
+            <h2><span>Product Rate Plan Price Link</span> {{ productRatePlanPriceLink.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span ngbTooltip="the stripe price identifier">Stripe Id</span></dt>
+                <dd>
+                    <span>{{ productRatePlanPriceLink.stripeId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the stripe price nick name">Stripe Nick Name</span></dt>
+                <dd>
+                    <span>{{ productRatePlanPriceLink.stripeNickName }}</span>
+                </dd>
+                <dt><span ngbTooltip="the billing product rate plan identifier">Product Rate Plan Id</span></dt>
+                <dd>
+                    <span>{{ productRatePlanPriceLink.productRatePlanId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the billing product rate plan name">Product Rate Plan Name</span></dt>
+                <dd>
+                    <span>{{ productRatePlanPriceLink.productRatePlanName }}</span>
+                </dd>
+                <dt><span ngbTooltip="migration date to stripe">Migrate At</span></dt>
+                <dd>
+                    <span>{{ productRatePlanPriceLink.migrateAt }}</span>
+                </dd>
+                <dt><span ngbTooltip="migration update Date">Updated At</span></dt>
+                <dd>
+                    <span>{{ productRatePlanPriceLink.updatedAt }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-rate-plan-price-link', productRatePlanPriceLink.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

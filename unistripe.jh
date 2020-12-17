@@ -53,6 +53,27 @@ entity CustomerOrganizationLink
 }
 
 /**
+ * This class reprensents a link between a billing 
+ * product rate plan and a stripe price
+ * @author Eric Lamore
+ */
+entity ProductRatePlanPriceLink
+{
+	/** the stripe price identifier */
+    stripeId String, 
+    /** the stripe price nick name */
+	stripeNickName String, 
+    /** the billing product rate plan identifier */
+	productRatePlanId String, 
+     /** the billing product rate plan name */
+	productRatePlanName String,    
+    /** migration date to stripe */
+    migrateAt LocalDate,
+    /** migration update Date*/
+    updatedAt LocalDate 
+}
+
+/**
  * This class represents a light
  * billing customer
  * @author Eric Lamore
@@ -116,6 +137,6 @@ paginate BillingStripeLink with pagination
 // dto * with mapstruct
 
 // Set service options to all except few
-service all with serviceImpl except BillingStripeLink, BillingCustomer
+service all with serviceImpl except BillingCustomer
 // Set an angular suffix
 // angularSuffix * with mySuffix

@@ -1,25 +1,25 @@
 {
-  "name": "BillingStripeLink",
+  "name": "ProductRatePlanPriceLink",
   "fields": [
     {
       "fieldName": "stripeId",
       "fieldType": "String",
-      "javadoc": "the stripe customer identifier"
+      "javadoc": "the stripe price identifier"
     },
     {
-      "fieldName": "stripeEmail",
+      "fieldName": "stripeNickName",
       "fieldType": "String",
-      "javadoc": "the stripe email of the customer"
+      "javadoc": "the stripe price nick name"
     },
     {
-      "fieldName": "customerId",
+      "fieldName": "productRatePlanId",
       "fieldType": "String",
-      "javadoc": "the billing customer identifier"
+      "javadoc": "the billing product rate plan identifier"
     },
     {
-      "fieldName": "customerName",
+      "fieldName": "productRatePlanName",
       "fieldType": "String",
-      "javadoc": "the billing name of the customer"
+      "javadoc": "the billing product rate plan name"
     },
     {
       "fieldName": "migrateAt",
@@ -33,11 +33,11 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20201113143313",
-  "javadoc": "This class represents a customer link beetween\\nbilling and stripe\\n@author Eric Lamore",
-  "entityTableName": "billing_stripe_link",
+  "changelogDate": "20201217134842",
+  "javadoc": "This class reprensents a link between a billing\\nproduct rate plan and a stripe price\\n@author Eric Lamore",
+  "entityTableName": "product_rate_plan_price_link",
   "dto": "no",
-  "pagination": "pagination",
+  "pagination": "no",
   "service": "serviceImpl",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,

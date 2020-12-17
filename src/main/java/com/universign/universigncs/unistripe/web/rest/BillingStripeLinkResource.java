@@ -1,7 +1,7 @@
 package com.universign.universigncs.unistripe.web.rest;
 
 import com.universign.universigncs.unistripe.domain.BillingStripeLink;
-import com.universign.universigncs.unistripe.repository.BillingStripeLinkRepository;
+import com.universign.universigncs.unistripe.service.BillingStripeLinkService;
 import com.universign.universigncs.unistripe.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -16,7 +16,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -29,7 +28,6 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
-@Transactional
 public class BillingStripeLinkResource {
 
     private final Logger log = LoggerFactory.getLogger(BillingStripeLinkResource.class);
@@ -39,10 +37,10 @@ public class BillingStripeLinkResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final BillingStripeLinkRepository billingStripeLinkRepository;
+    private final BillingStripeLinkService billingStripeLinkService;
 
-    public BillingStripeLinkResource(BillingStripeLinkRepository billingStripeLinkRepository) {
-        this.billingStripeLinkRepository = billingStripeLinkRepository;
+    public BillingStripeLinkResource(BillingStripeLinkService billingStripeLinkService) {
+        this.billingStripeLinkService = billingStripeLinkService;
     }
 
     /**
@@ -58,7 +56,7 @@ public class BillingStripeLinkResource {
         if (billingStripeLink.getId() != null) {
             throw new BadRequestAlertException("A new billingStripeLink cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        BillingStripeLink result = billingStripeLinkRepository.save(billingStripeLink);
+        BillingStripeLink result = billingStripeLinkService.save(billingStripeLink);
         return ResponseEntity.created(new URI("/api/billing-stripe-links/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -79,7 +77,7 @@ public class BillingStripeLinkResource {
         if (billingStripeLink.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        BillingStripeLink result = billingStripeLinkRepository.save(billingStripeLink);
+        BillingStripeLink result = billingStripeLinkService.save(billingStripeLink);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, billingStripeLink.getId().toString()))
             .body(result);
@@ -94,7 +92,7 @@ public class BillingStripeLinkResource {
     @GetMapping("/billing-stripe-links")
     public ResponseEntity<List<BillingStripeLink>> getAllBillingStripeLinks(Pageable pageable) {
         log.debug("REST request to get a page of BillingStripeLinks");
-        Page<BillingStripeLink> page = billingStripeLinkRepository.findAll(pageable);
+        Page<BillingStripeLink> page = billingStripeLinkService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -108,7 +106,7 @@ public class BillingStripeLinkResource {
     @GetMapping("/billing-stripe-links/{id}")
     public ResponseEntity<BillingStripeLink> getBillingStripeLink(@PathVariable Long id) {
         log.debug("REST request to get BillingStripeLink : {}", id);
-        Optional<BillingStripeLink> billingStripeLink = billingStripeLinkRepository.findById(id);
+        Optional<BillingStripeLink> billingStripeLink = billingStripeLinkService.findOne(id);
         return ResponseUtil.wrapOrNotFound(billingStripeLink);
     }
 
@@ -121,7 +119,7 @@ public class BillingStripeLinkResource {
     @DeleteMapping("/billing-stripe-links/{id}")
     public ResponseEntity<Void> deleteBillingStripeLink(@PathVariable Long id) {
         log.debug("REST request to delete BillingStripeLink : {}", id);
-        billingStripeLinkRepository.deleteById(id);
+        billingStripeLinkService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
 }

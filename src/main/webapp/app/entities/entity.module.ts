@@ -25,6 +25,11 @@ import { RouterModule } from '@angular/router';
         path: 'billing-stripe-link',
         loadChildren: () => import('./billing-stripe-link/billing-stripe-link.module').then(m => m.UnistripeBillingStripeLinkModule),
       },
+      {
+        path: 'product-rate-plan-price-link',
+        loadChildren: () =>
+          import('./product-rate-plan-price-link/product-rate-plan-price-link.module').then(m => m.UnistripeProductRatePlanPriceLinkModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
