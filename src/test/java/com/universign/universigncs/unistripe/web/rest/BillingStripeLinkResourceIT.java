@@ -3,6 +3,7 @@ package com.universign.universigncs.unistripe.web.rest;
 import com.universign.universigncs.unistripe.UnistripeApp;
 import com.universign.universigncs.unistripe.domain.BillingStripeLink;
 import com.universign.universigncs.unistripe.repository.BillingStripeLinkRepository;
+import com.universign.universigncs.unistripe.service.BillingStripeLinkService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,6 +52,9 @@ public class BillingStripeLinkResourceIT {
 
     @Autowired
     private BillingStripeLinkRepository billingStripeLinkRepository;
+
+    @Autowired
+    private BillingStripeLinkService billingStripeLinkService;
 
     @Autowired
     private EntityManager em;
@@ -189,7 +193,7 @@ public class BillingStripeLinkResourceIT {
     @Transactional
     public void updateBillingStripeLink() throws Exception {
         // Initialize the database
-        billingStripeLinkRepository.saveAndFlush(billingStripeLink);
+        billingStripeLinkService.save(billingStripeLink);
 
         int databaseSizeBeforeUpdate = billingStripeLinkRepository.findAll().size();
 
@@ -242,7 +246,7 @@ public class BillingStripeLinkResourceIT {
     @Transactional
     public void deleteBillingStripeLink() throws Exception {
         // Initialize the database
-        billingStripeLinkRepository.saveAndFlush(billingStripeLink);
+        billingStripeLinkService.save(billingStripeLink);
 
         int databaseSizeBeforeDelete = billingStripeLinkRepository.findAll().size();
 
