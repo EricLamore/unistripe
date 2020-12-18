@@ -38,6 +38,12 @@ public class ProductRatePlanPriceLinkResourceIT {
     private static final String DEFAULT_STRIPE_NICK_NAME = "AAAAAAAAAA";
     private static final String UPDATED_STRIPE_NICK_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PRODUCT_ID = "AAAAAAAAAA";
+    private static final String UPDATED_PRODUCT_ID = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PRODUCT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_PRODUCT_NAME = "BBBBBBBBBB";
+
     private static final String DEFAULT_PRODUCT_RATE_PLAN_ID = "AAAAAAAAAA";
     private static final String UPDATED_PRODUCT_RATE_PLAN_ID = "BBBBBBBBBB";
 
@@ -74,6 +80,8 @@ public class ProductRatePlanPriceLinkResourceIT {
         ProductRatePlanPriceLink productRatePlanPriceLink = new ProductRatePlanPriceLink()
             .stripeId(DEFAULT_STRIPE_ID)
             .stripeNickName(DEFAULT_STRIPE_NICK_NAME)
+            .productId(DEFAULT_PRODUCT_ID)
+            .productName(DEFAULT_PRODUCT_NAME)
             .productRatePlanId(DEFAULT_PRODUCT_RATE_PLAN_ID)
             .productRatePlanName(DEFAULT_PRODUCT_RATE_PLAN_NAME)
             .migrateAt(DEFAULT_MIGRATE_AT)
@@ -90,6 +98,8 @@ public class ProductRatePlanPriceLinkResourceIT {
         ProductRatePlanPriceLink productRatePlanPriceLink = new ProductRatePlanPriceLink()
             .stripeId(UPDATED_STRIPE_ID)
             .stripeNickName(UPDATED_STRIPE_NICK_NAME)
+            .productId(UPDATED_PRODUCT_ID)
+            .productName(UPDATED_PRODUCT_NAME)
             .productRatePlanId(UPDATED_PRODUCT_RATE_PLAN_ID)
             .productRatePlanName(UPDATED_PRODUCT_RATE_PLAN_NAME)
             .migrateAt(UPDATED_MIGRATE_AT)
@@ -118,6 +128,8 @@ public class ProductRatePlanPriceLinkResourceIT {
         ProductRatePlanPriceLink testProductRatePlanPriceLink = productRatePlanPriceLinkList.get(productRatePlanPriceLinkList.size() - 1);
         assertThat(testProductRatePlanPriceLink.getStripeId()).isEqualTo(DEFAULT_STRIPE_ID);
         assertThat(testProductRatePlanPriceLink.getStripeNickName()).isEqualTo(DEFAULT_STRIPE_NICK_NAME);
+        assertThat(testProductRatePlanPriceLink.getProductId()).isEqualTo(DEFAULT_PRODUCT_ID);
+        assertThat(testProductRatePlanPriceLink.getProductName()).isEqualTo(DEFAULT_PRODUCT_NAME);
         assertThat(testProductRatePlanPriceLink.getProductRatePlanId()).isEqualTo(DEFAULT_PRODUCT_RATE_PLAN_ID);
         assertThat(testProductRatePlanPriceLink.getProductRatePlanName()).isEqualTo(DEFAULT_PRODUCT_RATE_PLAN_NAME);
         assertThat(testProductRatePlanPriceLink.getMigrateAt()).isEqualTo(DEFAULT_MIGRATE_AT);
@@ -157,6 +169,8 @@ public class ProductRatePlanPriceLinkResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(productRatePlanPriceLink.getId().intValue())))
             .andExpect(jsonPath("$.[*].stripeId").value(hasItem(DEFAULT_STRIPE_ID)))
             .andExpect(jsonPath("$.[*].stripeNickName").value(hasItem(DEFAULT_STRIPE_NICK_NAME)))
+            .andExpect(jsonPath("$.[*].productId").value(hasItem(DEFAULT_PRODUCT_ID)))
+            .andExpect(jsonPath("$.[*].productName").value(hasItem(DEFAULT_PRODUCT_NAME)))
             .andExpect(jsonPath("$.[*].productRatePlanId").value(hasItem(DEFAULT_PRODUCT_RATE_PLAN_ID)))
             .andExpect(jsonPath("$.[*].productRatePlanName").value(hasItem(DEFAULT_PRODUCT_RATE_PLAN_NAME)))
             .andExpect(jsonPath("$.[*].migrateAt").value(hasItem(DEFAULT_MIGRATE_AT.toString())))
@@ -176,6 +190,8 @@ public class ProductRatePlanPriceLinkResourceIT {
             .andExpect(jsonPath("$.id").value(productRatePlanPriceLink.getId().intValue()))
             .andExpect(jsonPath("$.stripeId").value(DEFAULT_STRIPE_ID))
             .andExpect(jsonPath("$.stripeNickName").value(DEFAULT_STRIPE_NICK_NAME))
+            .andExpect(jsonPath("$.productId").value(DEFAULT_PRODUCT_ID))
+            .andExpect(jsonPath("$.productName").value(DEFAULT_PRODUCT_NAME))
             .andExpect(jsonPath("$.productRatePlanId").value(DEFAULT_PRODUCT_RATE_PLAN_ID))
             .andExpect(jsonPath("$.productRatePlanName").value(DEFAULT_PRODUCT_RATE_PLAN_NAME))
             .andExpect(jsonPath("$.migrateAt").value(DEFAULT_MIGRATE_AT.toString()))
@@ -204,6 +220,8 @@ public class ProductRatePlanPriceLinkResourceIT {
         updatedProductRatePlanPriceLink
             .stripeId(UPDATED_STRIPE_ID)
             .stripeNickName(UPDATED_STRIPE_NICK_NAME)
+            .productId(UPDATED_PRODUCT_ID)
+            .productName(UPDATED_PRODUCT_NAME)
             .productRatePlanId(UPDATED_PRODUCT_RATE_PLAN_ID)
             .productRatePlanName(UPDATED_PRODUCT_RATE_PLAN_NAME)
             .migrateAt(UPDATED_MIGRATE_AT)
@@ -220,6 +238,8 @@ public class ProductRatePlanPriceLinkResourceIT {
         ProductRatePlanPriceLink testProductRatePlanPriceLink = productRatePlanPriceLinkList.get(productRatePlanPriceLinkList.size() - 1);
         assertThat(testProductRatePlanPriceLink.getStripeId()).isEqualTo(UPDATED_STRIPE_ID);
         assertThat(testProductRatePlanPriceLink.getStripeNickName()).isEqualTo(UPDATED_STRIPE_NICK_NAME);
+        assertThat(testProductRatePlanPriceLink.getProductId()).isEqualTo(UPDATED_PRODUCT_ID);
+        assertThat(testProductRatePlanPriceLink.getProductName()).isEqualTo(UPDATED_PRODUCT_NAME);
         assertThat(testProductRatePlanPriceLink.getProductRatePlanId()).isEqualTo(UPDATED_PRODUCT_RATE_PLAN_ID);
         assertThat(testProductRatePlanPriceLink.getProductRatePlanName()).isEqualTo(UPDATED_PRODUCT_RATE_PLAN_NAME);
         assertThat(testProductRatePlanPriceLink.getMigrateAt()).isEqualTo(UPDATED_MIGRATE_AT);

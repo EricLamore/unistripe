@@ -12,6 +12,16 @@
       "javadoc": "the stripe price nick name"
     },
     {
+      "fieldName": "productId",
+      "fieldType": "String",
+      "javadoc": "the billing product identifier"
+    },
+    {
+      "fieldName": "productName",
+      "fieldType": "String",
+      "javadoc": "the billing product name"
+    },
+    {
       "fieldName": "productRatePlanId",
       "fieldType": "String",
       "javadoc": "the billing product rate plan identifier"

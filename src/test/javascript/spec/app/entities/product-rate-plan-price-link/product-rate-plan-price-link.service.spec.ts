@@ -24,7 +24,17 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new ProductRatePlanPriceLink(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', currentDate, currentDate);
+      elemDefault = new ProductRatePlanPriceLink(
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        currentDate,
+        currentDate
+      );
     });
 
     describe('Service methods', () => {
@@ -74,6 +84,8 @@ describe('Service Tests', () => {
           {
             stripeId: 'BBBBBB',
             stripeNickName: 'BBBBBB',
+            productId: 'BBBBBB',
+            productName: 'BBBBBB',
             productRatePlanId: 'BBBBBB',
             productRatePlanName: 'BBBBBB',
             migrateAt: currentDate.format(DATE_FORMAT),
@@ -102,6 +114,8 @@ describe('Service Tests', () => {
           {
             stripeId: 'BBBBBB',
             stripeNickName: 'BBBBBB',
+            productId: 'BBBBBB',
+            productName: 'BBBBBB',
             productRatePlanId: 'BBBBBB',
             productRatePlanName: 'BBBBBB',
             migrateAt: currentDate.format(DATE_FORMAT),

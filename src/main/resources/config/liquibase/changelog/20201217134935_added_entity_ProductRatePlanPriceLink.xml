@@ -22,6 +22,12 @@
             <column name="stripe_nick_name" type="varchar(255)" remarks="the stripe price nick name">
                 <constraints nullable="true" />
             </column>
+            <column name="product_id" type="varchar(255)" remarks="the billing product identifier">
+                <constraints nullable="true" />
+            </column>
+            <column name="product_name" type="varchar(255)" remarks="the billing product name">
+                <constraints nullable="true" />
+            </column>
             <column name="product_rate_plan_id" type="varchar(255)" remarks="the billing product rate plan identifier">
                 <constraints nullable="true" />
             </column>
@@ -59,6 +65,8 @@
             <column name="id" type="numeric"/>
             <column name="stripe_id" type="string"/>
             <column name="stripe_nick_name" type="string"/>
+            <column name="product_id" type="string"/>
+            <column name="product_name" type="string"/>
             <column name="product_rate_plan_id" type="string"/>
             <column name="product_rate_plan_name" type="string"/>
             <column name="migrate_at" type="date"/>
