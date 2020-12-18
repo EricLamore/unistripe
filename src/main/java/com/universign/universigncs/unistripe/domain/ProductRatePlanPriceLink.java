@@ -37,6 +37,20 @@ public class ProductRatePlanPriceLink implements Serializable {
     private String stripeNickName;
 
     /**
+     * the billing product identifier
+     */
+    @ApiModelProperty(value = "the billing product identifier")
+    @Column(name = "product_id")
+    private String productId;
+
+    /**
+     * the billing product name
+     */
+    @ApiModelProperty(value = "the billing product name")
+    @Column(name = "product_name")
+    private String productName;
+
+    /**
      * the billing product rate plan identifier
      */
     @ApiModelProperty(value = "the billing product rate plan identifier")
@@ -97,6 +111,32 @@ public class ProductRatePlanPriceLink implements Serializable {
 
     public void setStripeNickName(String stripeNickName) {
         this.stripeNickName = stripeNickName;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public ProductRatePlanPriceLink productId(String productId) {
+        this.productId = productId;
+        return this;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public ProductRatePlanPriceLink productName(String productName) {
+        this.productName = productName;
+        return this;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getProductRatePlanId() {
@@ -175,6 +215,8 @@ public class ProductRatePlanPriceLink implements Serializable {
             "id=" + getId() +
             ", stripeId='" + getStripeId() + "'" +
             ", stripeNickName='" + getStripeNickName() + "'" +
+            ", productId='" + getProductId() + "'" +
+            ", productName='" + getProductName() + "'" +
             ", productRatePlanId='" + getProductRatePlanId() + "'" +
             ", productRatePlanName='" + getProductRatePlanName() + "'" +
             ", migrateAt='" + getMigrateAt() + "'" +

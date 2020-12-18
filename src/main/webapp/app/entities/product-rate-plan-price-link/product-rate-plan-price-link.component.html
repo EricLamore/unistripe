@@ -25,6 +25,8 @@
                     <th scope="col" ><span>ID</span></th>
                     <th scope="col" ><span>Stripe Id</span></th>
                     <th scope="col" ><span>Stripe Nick Name</span></th>
+                    <th scope="col" ><span>Product Id</span></th>
+                    <th scope="col" ><span>Product Name</span></th>
                     <th scope="col" ><span>Product Rate Plan Id</span></th>
                     <th scope="col" ><span>Product Rate Plan Name</span></th>
                     <th scope="col" ><span>Migrate At</span></th>
@@ -37,6 +39,8 @@
                     <td><a [routerLink]="['/product-rate-plan-price-link', productRatePlanPriceLink.id, 'view']">{{ productRatePlanPriceLink.id }}</a></td>
                     <td>{{ productRatePlanPriceLink.stripeId }}</td>
                     <td>{{ productRatePlanPriceLink.stripeNickName }}</td>
+                    <td>{{ productRatePlanPriceLink.productId }}</td>
+                    <td>{{ productRatePlanPriceLink.productName }}</td>
                     <td>{{ productRatePlanPriceLink.productRatePlanId }}</td>
                     <td>{{ productRatePlanPriceLink.productRatePlanName }}</td>
                     <td>{{ productRatePlanPriceLink.migrateAt | date:'mediumDate' }}</td>
