@@ -63,10 +63,14 @@ entity ProductRatePlanPriceLink
     stripeId String, 
     /** the stripe price nick name */
 	stripeNickName String, 
+    /** the billing product identifier */
+	productId String, 
+     /** the billing product name */
+	productName String, 
     /** the billing product rate plan identifier */
 	productRatePlanId String, 
      /** the billing product rate plan name */
-	productRatePlanName String,    
+	productRatePlanName String, 
     /** migration date to stripe */
     migrateAt LocalDate,
     /** migration update Date*/
