@@ -60,9 +60,13 @@ entity CustomerOrganizationLink
 entity ProductRatePlanPriceLink
 {
 	/** the stripe price identifier */
-    stripeId String, 
+    stripeAboId String, 
     /** the stripe price nick name */
-	stripeNickName String, 
+	stripeAboNickName String, 
+    /** the stripe price identifier */
+    stripeConsoId String, 
+    /** the stripe price nick name */
+	stripeConsoNickName String, 
     /** the billing product identifier */
 	productId String, 
      /** the billing product name */
