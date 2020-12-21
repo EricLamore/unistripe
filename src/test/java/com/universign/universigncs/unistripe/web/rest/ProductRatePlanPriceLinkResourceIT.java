@@ -32,11 +32,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class ProductRatePlanPriceLinkResourceIT {
 
-    private static final String DEFAULT_STRIPE_ID = "AAAAAAAAAA";
-    private static final String UPDATED_STRIPE_ID = "BBBBBBBBBB";
+    private static final String DEFAULT_STRIPE_ABO_ID = "AAAAAAAAAA";
+    private static final String UPDATED_STRIPE_ABO_ID = "BBBBBBBBBB";
 
-    private static final String DEFAULT_STRIPE_NICK_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_STRIPE_NICK_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_STRIPE_ABO_NICK_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_STRIPE_ABO_NICK_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_STRIPE_CONSO_ID = "AAAAAAAAAA";
+    private static final String UPDATED_STRIPE_CONSO_ID = "BBBBBBBBBB";
+
+    private static final String DEFAULT_STRIPE_CONSO_NICK_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_STRIPE_CONSO_NICK_NAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_PRODUCT_ID = "AAAAAAAAAA";
     private static final String UPDATED_PRODUCT_ID = "BBBBBBBBBB";
@@ -78,8 +84,10 @@ public class ProductRatePlanPriceLinkResourceIT {
      */
     public static ProductRatePlanPriceLink createEntity(EntityManager em) {
         ProductRatePlanPriceLink productRatePlanPriceLink = new ProductRatePlanPriceLink()
-            .stripeId(DEFAULT_STRIPE_ID)
-            .stripeNickName(DEFAULT_STRIPE_NICK_NAME)
+            .stripeAboId(DEFAULT_STRIPE_ABO_ID)
+            .stripeAboNickName(DEFAULT_STRIPE_ABO_NICK_NAME)
+            .stripeConsoId(DEFAULT_STRIPE_CONSO_ID)
+            .stripeConsoNickName(DEFAULT_STRIPE_CONSO_NICK_NAME)
             .productId(DEFAULT_PRODUCT_ID)
             .productName(DEFAULT_PRODUCT_NAME)
             .productRatePlanId(DEFAULT_PRODUCT_RATE_PLAN_ID)
@@ -96,8 +104,10 @@ public class ProductRatePlanPriceLinkResourceIT {
      */
     public static ProductRatePlanPriceLink createUpdatedEntity(EntityManager em) {
         ProductRatePlanPriceLink productRatePlanPriceLink = new ProductRatePlanPriceLink()
-            .stripeId(UPDATED_STRIPE_ID)
-            .stripeNickName(UPDATED_STRIPE_NICK_NAME)
+            .stripeAboId(UPDATED_STRIPE_ABO_ID)
+            .stripeAboNickName(UPDATED_STRIPE_ABO_NICK_NAME)
+            .stripeConsoId(UPDATED_STRIPE_CONSO_ID)
+            .stripeConsoNickName(UPDATED_STRIPE_CONSO_NICK_NAME)
             .productId(UPDATED_PRODUCT_ID)
             .productName(UPDATED_PRODUCT_NAME)
             .productRatePlanId(UPDATED_PRODUCT_RATE_PLAN_ID)
@@ -126,8 +136,10 @@ public class ProductRatePlanPriceLinkResourceIT {
         List<ProductRatePlanPriceLink> productRatePlanPriceLinkList = productRatePlanPriceLinkRepository.findAll();
         assertThat(productRatePlanPriceLinkList).hasSize(databaseSizeBeforeCreate + 1);
         ProductRatePlanPriceLink testProductRatePlanPriceLink = productRatePlanPriceLinkList.get(productRatePlanPriceLinkList.size() - 1);
-        assertThat(testProductRatePlanPriceLink.getStripeId()).isEqualTo(DEFAULT_STRIPE_ID);
-        assertThat(testProductRatePlanPriceLink.getStripeNickName()).isEqualTo(DEFAULT_STRIPE_NICK_NAME);
+        assertThat(testProductRatePlanPriceLink.getStripeAboId()).isEqualTo(DEFAULT_STRIPE_ABO_ID);
+        assertThat(testProductRatePlanPriceLink.getStripeAboNickName()).isEqualTo(DEFAULT_STRIPE_ABO_NICK_NAME);
+        assertThat(testProductRatePlanPriceLink.getStripeConsoId()).isEqualTo(DEFAULT_STRIPE_CONSO_ID);
+        assertThat(testProductRatePlanPriceLink.getStripeConsoNickName()).isEqualTo(DEFAULT_STRIPE_CONSO_NICK_NAME);
         assertThat(testProductRatePlanPriceLink.getProductId()).isEqualTo(DEFAULT_PRODUCT_ID);
         assertThat(testProductRatePlanPriceLink.getProductName()).isEqualTo(DEFAULT_PRODUCT_NAME);
         assertThat(testProductRatePlanPriceLink.getProductRatePlanId()).isEqualTo(DEFAULT_PRODUCT_RATE_PLAN_ID);
@@ -167,8 +179,10 @@ public class ProductRatePlanPriceLinkResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(productRatePlanPriceLink.getId().intValue())))
-            .andExpect(jsonPath("$.[*].stripeId").value(hasItem(DEFAULT_STRIPE_ID)))
-            .andExpect(jsonPath("$.[*].stripeNickName").value(hasItem(DEFAULT_STRIPE_NICK_NAME)))
+            .andExpect(jsonPath("$.[*].stripeAboId").value(hasItem(DEFAULT_STRIPE_ABO_ID)))
+            .andExpect(jsonPath("$.[*].stripeAboNickName").value(hasItem(DEFAULT_STRIPE_ABO_NICK_NAME)))
+            .andExpect(jsonPath("$.[*].stripeConsoId").value(hasItem(DEFAULT_STRIPE_CONSO_ID)))
+            .andExpect(jsonPath("$.[*].stripeConsoNickName").value(hasItem(DEFAULT_STRIPE_CONSO_NICK_NAME)))
             .andExpect(jsonPath("$.[*].productId").value(hasItem(DEFAULT_PRODUCT_ID)))
             .andExpect(jsonPath("$.[*].productName").value(hasItem(DEFAULT_PRODUCT_NAME)))
             .andExpect(jsonPath("$.[*].productRatePlanId").value(hasItem(DEFAULT_PRODUCT_RATE_PLAN_ID)))
@@ -188,8 +202,10 @@ public class ProductRatePlanPriceLinkResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(productRatePlanPriceLink.getId().intValue()))
-            .andExpect(jsonPath("$.stripeId").value(DEFAULT_STRIPE_ID))
-            .andExpect(jsonPath("$.stripeNickName").value(DEFAULT_STRIPE_NICK_NAME))
+            .andExpect(jsonPath("$.stripeAboId").value(DEFAULT_STRIPE_ABO_ID))
+            .andExpect(jsonPath("$.stripeAboNickName").value(DEFAULT_STRIPE_ABO_NICK_NAME))
+            .andExpect(jsonPath("$.stripeConsoId").value(DEFAULT_STRIPE_CONSO_ID))
+            .andExpect(jsonPath("$.stripeConsoNickName").value(DEFAULT_STRIPE_CONSO_NICK_NAME))
             .andExpect(jsonPath("$.productId").value(DEFAULT_PRODUCT_ID))
             .andExpect(jsonPath("$.productName").value(DEFAULT_PRODUCT_NAME))
             .andExpect(jsonPath("$.productRatePlanId").value(DEFAULT_PRODUCT_RATE_PLAN_ID))
@@ -218,8 +234,10 @@ public class ProductRatePlanPriceLinkResourceIT {
         // Disconnect from session so that the updates on updatedProductRatePlanPriceLink are not directly saved in db
         em.detach(updatedProductRatePlanPriceLink);
         updatedProductRatePlanPriceLink
-            .stripeId(UPDATED_STRIPE_ID)
-            .stripeNickName(UPDATED_STRIPE_NICK_NAME)
+            .stripeAboId(UPDATED_STRIPE_ABO_ID)
+            .stripeAboNickName(UPDATED_STRIPE_ABO_NICK_NAME)
+            .stripeConsoId(UPDATED_STRIPE_CONSO_ID)
+            .stripeConsoNickName(UPDATED_STRIPE_CONSO_NICK_NAME)
             .productId(UPDATED_PRODUCT_ID)
             .productName(UPDATED_PRODUCT_NAME)
             .productRatePlanId(UPDATED_PRODUCT_RATE_PLAN_ID)
@@ -236,8 +254,10 @@ public class ProductRatePlanPriceLinkResourceIT {
         List<ProductRatePlanPriceLink> productRatePlanPriceLinkList = productRatePlanPriceLinkRepository.findAll();
         assertThat(productRatePlanPriceLinkList).hasSize(databaseSizeBeforeUpdate);
         ProductRatePlanPriceLink testProductRatePlanPriceLink = productRatePlanPriceLinkList.get(productRatePlanPriceLinkList.size() - 1);
-        assertThat(testProductRatePlanPriceLink.getStripeId()).isEqualTo(UPDATED_STRIPE_ID);
-        assertThat(testProductRatePlanPriceLink.getStripeNickName()).isEqualTo(UPDATED_STRIPE_NICK_NAME);
+        assertThat(testProductRatePlanPriceLink.getStripeAboId()).isEqualTo(UPDATED_STRIPE_ABO_ID);
+        assertThat(testProductRatePlanPriceLink.getStripeAboNickName()).isEqualTo(UPDATED_STRIPE_ABO_NICK_NAME);
+        assertThat(testProductRatePlanPriceLink.getStripeConsoId()).isEqualTo(UPDATED_STRIPE_CONSO_ID);
+        assertThat(testProductRatePlanPriceLink.getStripeConsoNickName()).isEqualTo(UPDATED_STRIPE_CONSO_NICK_NAME);
         assertThat(testProductRatePlanPriceLink.getProductId()).isEqualTo(UPDATED_PRODUCT_ID);
         assertThat(testProductRatePlanPriceLink.getProductName()).isEqualTo(UPDATED_PRODUCT_NAME);
         assertThat(testProductRatePlanPriceLink.getProductRatePlanId()).isEqualTo(UPDATED_PRODUCT_RATE_PLAN_ID);

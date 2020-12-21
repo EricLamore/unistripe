@@ -32,6 +32,8 @@ describe('Service Tests', () => {
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
         currentDate,
         currentDate
       );
@@ -82,8 +84,10 @@ describe('Service Tests', () => {
       it('should update a ProductRatePlanPriceLink', () => {
         const returnedFromService = Object.assign(
           {
-            stripeId: 'BBBBBB',
-            stripeNickName: 'BBBBBB',
+            stripeAboId: 'BBBBBB',
+            stripeAboNickName: 'BBBBBB',
+            stripeConsoId: 'BBBBBB',
+            stripeConsoNickName: 'BBBBBB',
             productId: 'BBBBBB',
             productName: 'BBBBBB',
             productRatePlanId: 'BBBBBB',
@@ -112,8 +116,10 @@ describe('Service Tests', () => {
       it('should return a list of ProductRatePlanPriceLink', () => {
         const returnedFromService = Object.assign(
           {
-            stripeId: 'BBBBBB',
-            stripeNickName: 'BBBBBB',
+            stripeAboId: 'BBBBBB',
+            stripeAboNickName: 'BBBBBB',
+            stripeConsoId: 'BBBBBB',
+            stripeConsoNickName: 'BBBBBB',
             productId: 'BBBBBB',
             productName: 'BBBBBB',
             productRatePlanId: 'BBBBBB',
