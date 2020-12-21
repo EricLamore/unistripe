@@ -19,8 +19,10 @@ export class ProductRatePlanPriceLinkUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    stripeId: [],
-    stripeNickName: [],
+    stripeAboId: [],
+    stripeAboNickName: [],
+    stripeConsoId: [],
+    stripeConsoNickName: [],
     productId: [],
     productName: [],
     productRatePlanId: [],
@@ -44,8 +46,10 @@ export class ProductRatePlanPriceLinkUpdateComponent implements OnInit {
   updateForm(productRatePlanPriceLink: IProductRatePlanPriceLink): void {
     this.editForm.patchValue({
       id: productRatePlanPriceLink.id,
-      stripeId: productRatePlanPriceLink.stripeId,
-      stripeNickName: productRatePlanPriceLink.stripeNickName,
+      stripeAboId: productRatePlanPriceLink.stripeAboId,
+      stripeAboNickName: productRatePlanPriceLink.stripeAboNickName,
+      stripeConsoId: productRatePlanPriceLink.stripeConsoId,
+      stripeConsoNickName: productRatePlanPriceLink.stripeConsoNickName,
       productId: productRatePlanPriceLink.productId,
       productName: productRatePlanPriceLink.productName,
       productRatePlanId: productRatePlanPriceLink.productRatePlanId,
@@ -73,8 +77,10 @@ export class ProductRatePlanPriceLinkUpdateComponent implements OnInit {
     return {
       ...new ProductRatePlanPriceLink(),
       id: this.editForm.get(['id'])!.value,
-      stripeId: this.editForm.get(['stripeId'])!.value,
-      stripeNickName: this.editForm.get(['stripeNickName'])!.value,
+      stripeAboId: this.editForm.get(['stripeAboId'])!.value,
+      stripeAboNickName: this.editForm.get(['stripeAboNickName'])!.value,
+      stripeConsoId: this.editForm.get(['stripeConsoId'])!.value,
+      stripeConsoNickName: this.editForm.get(['stripeConsoNickName'])!.value,
       productId: this.editForm.get(['productId'])!.value,
       productName: this.editForm.get(['productName'])!.value,
       productRatePlanId: this.editForm.get(['productRatePlanId'])!.value,

@@ -2,12 +2,22 @@
   "name": "ProductRatePlanPriceLink",
   "fields": [
     {
-      "fieldName": "stripeId",
+      "fieldName": "stripeAboId",
       "fieldType": "String",
       "javadoc": "the stripe price identifier"
     },
     {
-      "fieldName": "stripeNickName",
+      "fieldName": "stripeAboNickName",
+      "fieldType": "String",
+      "javadoc": "the stripe price nick name"
+    },
+    {
+      "fieldName": "stripeConsoId",
+      "fieldType": "String",
+      "javadoc": "the stripe price identifier"
+    },
+    {
+      "fieldName": "stripeConsoNickName",
       "fieldType": "String",
       "javadoc": "the stripe price nick name"
     },

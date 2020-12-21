@@ -26,15 +26,29 @@ public class ProductRatePlanPriceLink implements Serializable {
      * the stripe price identifier
      */
     @ApiModelProperty(value = "the stripe price identifier")
-    @Column(name = "stripe_id")
-    private String stripeId;
+    @Column(name = "stripe_abo_id")
+    private String stripeAboId;
 
     /**
      * the stripe price nick name
      */
     @ApiModelProperty(value = "the stripe price nick name")
-    @Column(name = "stripe_nick_name")
-    private String stripeNickName;
+    @Column(name = "stripe_abo_nick_name")
+    private String stripeAboNickName;
+
+    /**
+     * the stripe price identifier
+     */
+    @ApiModelProperty(value = "the stripe price identifier")
+    @Column(name = "stripe_conso_id")
+    private String stripeConsoId;
+
+    /**
+     * the stripe price nick name
+     */
+    @ApiModelProperty(value = "the stripe price nick name")
+    @Column(name = "stripe_conso_nick_name")
+    private String stripeConsoNickName;
 
     /**
      * the billing product identifier
@@ -87,30 +101,56 @@ public class ProductRatePlanPriceLink implements Serializable {
         this.id = id;
     }
 
-    public String getStripeId() {
-        return stripeId;
+    public String getStripeAboId() {
+        return stripeAboId;
     }
 
-    public ProductRatePlanPriceLink stripeId(String stripeId) {
-        this.stripeId = stripeId;
+    public ProductRatePlanPriceLink stripeAboId(String stripeAboId) {
+        this.stripeAboId = stripeAboId;
         return this;
     }
 
-    public void setStripeId(String stripeId) {
-        this.stripeId = stripeId;
+    public void setStripeAboId(String stripeAboId) {
+        this.stripeAboId = stripeAboId;
     }
 
-    public String getStripeNickName() {
-        return stripeNickName;
+    public String getStripeAboNickName() {
+        return stripeAboNickName;
     }
 
-    public ProductRatePlanPriceLink stripeNickName(String stripeNickName) {
-        this.stripeNickName = stripeNickName;
+    public ProductRatePlanPriceLink stripeAboNickName(String stripeAboNickName) {
+        this.stripeAboNickName = stripeAboNickName;
         return this;
     }
 
-    public void setStripeNickName(String stripeNickName) {
-        this.stripeNickName = stripeNickName;
+    public void setStripeAboNickName(String stripeAboNickName) {
+        this.stripeAboNickName = stripeAboNickName;
+    }
+
+    public String getStripeConsoId() {
+        return stripeConsoId;
+    }
+
+    public ProductRatePlanPriceLink stripeConsoId(String stripeConsoId) {
+        this.stripeConsoId = stripeConsoId;
+        return this;
+    }
+
+    public void setStripeConsoId(String stripeConsoId) {
+        this.stripeConsoId = stripeConsoId;
+    }
+
+    public String getStripeConsoNickName() {
+        return stripeConsoNickName;
+    }
+
+    public ProductRatePlanPriceLink stripeConsoNickName(String stripeConsoNickName) {
+        this.stripeConsoNickName = stripeConsoNickName;
+        return this;
+    }
+
+    public void setStripeConsoNickName(String stripeConsoNickName) {
+        this.stripeConsoNickName = stripeConsoNickName;
     }
 
     public String getProductId() {
@@ -213,8 +253,10 @@ public class ProductRatePlanPriceLink implements Serializable {
     public String toString() {
         return "ProductRatePlanPriceLink{" +
             "id=" + getId() +
-            ", stripeId='" + getStripeId() + "'" +
-            ", stripeNickName='" + getStripeNickName() + "'" +
+            ", stripeAboId='" + getStripeAboId() + "'" +
+            ", stripeAboNickName='" + getStripeAboNickName() + "'" +
+            ", stripeConsoId='" + getStripeConsoId() + "'" +
+            ", stripeConsoNickName='" + getStripeConsoNickName() + "'" +
             ", productId='" + getProductId() + "'" +
             ", productName='" + getProductName() + "'" +
             ", productRatePlanId='" + getProductRatePlanId() + "'" +

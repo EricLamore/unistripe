@@ -2,8 +2,10 @@ import { Moment } from 'moment';
 
 export interface IProductRatePlanPriceLink {
   id?: number;
-  stripeId?: string;
-  stripeNickName?: string;
+  stripeAboId?: string;
+  stripeAboNickName?: string;
+  stripeConsoId?: string;
+  stripeConsoNickName?: string;
   productId?: string;
   productName?: string;
   productRatePlanId?: string;
@@ -15,8 +17,10 @@ export interface IProductRatePlanPriceLink {
 export class ProductRatePlanPriceLink implements IProductRatePlanPriceLink {
   constructor(
     public id?: number,
-    public stripeId?: string,
-    public stripeNickName?: string,
+    public stripeAboId?: string,
+    public stripeAboNickName?: string,
+    public stripeConsoId?: string,
+    public stripeConsoNickName?: string,
     public productId?: string,
     public productName?: string,
     public productRatePlanId?: string,
