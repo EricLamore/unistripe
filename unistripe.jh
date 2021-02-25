@@ -135,11 +135,29 @@ entity BillingStripeLink {
     updatedAt LocalDate 
 }
 
+/**
+ * This class represents a customer link beetween
+ * billing and stripe
+ * @author Eric Lamore
+ */
+entity StripeSubscription {
+	/** the stripe customer identifier */
+    stripeId String,
+    /** the stripe email of the customer */
+    stripeEmail String,
+	/** the subscription identifier */
+	subscriptionId String, 
+    /** migration date to stripe */
+    migrateAt LocalDate,
+    /** migration update Date*/
+    updatedAt LocalDate 
+}
+
 
 
 
 // Set pagination options
-paginate BillingStripeLink, BillingStripeLink with pagination
+paginate BillingStripeLink, BillingStripeLink, StripeSubscription with pagination
 
 // Use Data Transfert Objects (DTO)
 // dto * with mapstruct
