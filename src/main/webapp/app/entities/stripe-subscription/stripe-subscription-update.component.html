@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-stripe-subscription-heading">Create or edit a Stripe Subscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stripeId" ngbTooltip="the stripe customer identifier">Stripe Id</label>
+                    <input type="text" class="form-control" name="stripeId" id="field_stripeId"
+                           formControlName="stripeId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_stripeEmail" ngbTooltip="the stripe email of the customer">Stripe Email</label>
+                    <input type="text" class="form-control" name="stripeEmail" id="field_stripeEmail"
+                           formControlName="stripeEmail"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_subscriptionId" ngbTooltip="the subscription identifier">Subscription Id</label>
+                    <input type="text" class="form-control" name="subscriptionId" id="field_subscriptionId"
+                           formControlName="subscriptionId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_migrateAt" ngbTooltip="migration date to stripe">Migrate At</label>
+                    <div class="input-group">
+                        <input id="field_migrateAt" type="text" class="form-control" name="migrateAt" ngbDatepicker #migrateAtDp="ngbDatepicker" formControlName="migrateAt"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="migrateAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updatedAt" ngbTooltip="migration update Date">Updated At</label>
+                    <div class="input-group">
+                        <input id="field_updatedAt" type="text" class="form-control" name="updatedAt" ngbDatepicker #updatedAtDp="ngbDatepicker" formControlName="updatedAt"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="updatedAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

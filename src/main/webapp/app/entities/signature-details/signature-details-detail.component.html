@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="signatureDetails">
+            <h2><span>Signature Details</span> {{ signatureDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>First Name</span></dt>
+                <dd>
+                    <span>{{ signatureDetails.firstName }}</span>
+                </dd>
+                <dt><span>Last Name</span></dt>
+                <dd>
+                    <span>{{ signatureDetails.lastName }}</span>
+                </dd>
+                <dt><span>Siganture Date</span></dt>
+                <dd>
+                    <span>{{ signatureDetails.sigantureDate }}</span>
+                </dd>
+                <dt><span>Siganture Count</span></dt>
+                <dd>
+                    <span>{{ signatureDetails.sigantureCount }}</span>
+                </dd>
+                <dt><span>Uniproxy Conso</span></dt>
+                <dd>
+                    <div *ngIf="signatureDetails.uniproxyConso">
+                        <a [routerLink]="['/uniproxy-conso', signatureDetails.uniproxyConso?.id, 'view']">{{ signatureDetails.uniproxyConso?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/signature-details', signatureDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
