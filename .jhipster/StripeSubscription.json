@@ -1,0 +1,43 @@
+{
+  "name": "StripeSubscription",
+  "fields": [
+    {
+      "fieldName": "stripeId",
+      "fieldType": "String",
+      "javadoc": "the stripe customer identifier"
+    },
+    {
+      "fieldName": "stripeEmail",
+      "fieldType": "String",
+      "javadoc": "the stripe email of the customer"
+    },
+    {
+      "fieldName": "subscriptionId",
+      "fieldType": "String",
+      "javadoc": "the subscription identifier"
+    },
+    {
+      "fieldName": "migrateAt",
+      "fieldType": "LocalDate",
+      "javadoc": "migration date to stripe"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate",
+      "javadoc": "migration update Date"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210315091733",
+  "javadoc": "This class represents a customer link beetween\\nbilling and stripe\\n@author Eric Lamore",
+  "entityTableName": "stripe_subscription",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

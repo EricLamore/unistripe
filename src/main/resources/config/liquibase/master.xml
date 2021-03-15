@@ -20,7 +20,12 @@
     <include file="config/liquibase/changelog/20201113143213_added_entity_BillingCustomer.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201113143313_added_entity_BillingStripeLink.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201217134935_added_entity_ProductRatePlanPriceLink.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210315091733_added_entity_StripeSubscription.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210315091833_added_entity_UniproxyConso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210315091933_added_entity_SignatureDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210315092033_added_entity_Bills.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210315091933_added_entity_constraints_SignatureDetails.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
