@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span>Signature Details</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-signature-details" [routerLink]="['/signature-details/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Signature Details
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="signatureDetails?.length === 0">
+        <span>No signatureDetails found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="signatureDetails && signatureDetails.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>First Name</span></th>
+                    <th scope="col" ><span>Last Name</span></th>
+                    <th scope="col" ><span>Siganture Date</span></th>
+                    <th scope="col" ><span>Siganture Count</span></th>
+                    <th scope="col" ><span>Uniproxy Conso</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let signatureDetails of signatureDetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/signature-details', signatureDetails.id, 'view']">{{ signatureDetails.id }}</a></td>
+                    <td>{{ signatureDetails.firstName }}</td>
+                    <td>{{ signatureDetails.lastName }}</td>
+                    <td>{{ signatureDetails.sigantureDate | date:'medium' }}</td>
+                    <td>{{ signatureDetails.sigantureCount }}</td>
+                    <td>
+                        <div *ngIf="signatureDetails.uniproxyConso">
+                            <a [routerLink]="['/uniproxy-conso', signatureDetails.uniproxyConso?.id, 'view']" >{{ signatureDetails.uniproxyConso?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/signature-details', signatureDetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/signature-details', signatureDetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(signatureDetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
