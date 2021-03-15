@@ -1,0 +1,49 @@
+{
+  "name": "UniproxyConso",
+  "fields": [
+    {
+      "fieldName": "subscriptionId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TYPE",
+      "fieldValues": "SIGNATURE,SERVER,TIMESTAMP"
+    },
+    {
+      "fieldName": "conso",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "signatureDetails",
+      "otherEntityRelationshipName": "uniproxyConso",
+      "relationshipName": "signatureDetails"
+    }
+  ],
+  "changelogDate": "20210315091833",
+  "entityTableName": "uniproxy_conso",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
