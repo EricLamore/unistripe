@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-organization-heading">Create or edit a Organization</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_organisationId" ngbTooltip="the organisation identifier">Organisation Id</label>
+                    <input type="text" class="form-control" name="organisationId" id="field_organisationId"
+                           formControlName="organisationId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_address" ngbTooltip="the organisation address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_city" ngbTooltip="the organisation city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_country" ngbTooltip="the organisation country">Country</label>
+                    <input type="text" class="form-control" name="country" id="field_country"
+                           formControlName="country"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name" ngbTooltip="the organisation name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_registerDate" ngbTooltip="the organisation register date">Register Date</label>
+                    <div class="input-group">
+                        <input id="field_registerDate" type="text" class="form-control" name="registerDate" ngbDatepicker #registerDateDp="ngbDatepicker" formControlName="registerDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="registerDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status" ngbTooltip="the organisation status">Status</label>
+                    <input type="number" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_zipCode" ngbTooltip="the organisation zipCode">Zip Code</label>
+                    <input type="text" class="form-control" name="zipCode" id="field_zipCode"
+                           formControlName="zipCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_individual" ngbTooltip="the organisation individual">Individual</label>
+                    <input type="checkbox" class="form-control" name="individual" id="field_individual"
+                           formControlName="individual"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_organization">Organization</label>
+                    <select class="form-control" id="field_organization" name="organization" formControlName="organization">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="priceOption.id === editForm.get('organization')!.value?.id ? editForm.get('organization')!.value : priceOption" *ngFor="let priceOption of prices; trackBy: trackById">{{ priceOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

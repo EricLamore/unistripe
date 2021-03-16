@@ -1,0 +1,46 @@
+{
+  "name": "Price",
+  "fields": [
+    {
+      "fieldName": "stripeId",
+      "fieldType": "String",
+      "javadoc": "the Price identifier"
+    },
+    {
+      "fieldName": "nickname",
+      "fieldType": "String",
+      "javadoc": "the Price nickname"
+    },
+    {
+      "fieldName": "productId",
+      "fieldType": "String",
+      "javadoc": "the Price product identifier"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "organization",
+      "otherEntityRelationshipName": "organization",
+      "relationshipName": "organization"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "stripeSubscription",
+      "otherEntityRelationshipName": "price",
+      "relationshipName": "price",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210316131449",
+  "entityTableName": "price",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
