@@ -135,11 +135,108 @@ entity BillingStripeLink {
     updatedAt LocalDate 
 }
 
+/**
+ * This class represents a customer link beetween
+ * billing and stripe
+ * @author Eric Lamore
+ */
+entity StripeSubscription {
+	/** the stripe customer identifier */
+    stripeId String,
+    /** the stripe email of the customer */
+    stripeEmail String,
+	/** the taxeRate for this customer */
+    taxeRate Long,
+    /** migration Date*/
+    migrateAt LocalDate,
+    /** migration update Date*/
+    updatedAt LocalDate 
+}
 
+entity Organization {
+	/** the organisation identifier */
+	organisationId String,
+    /** the organisation address */
+	address String,
+    /** the organisation city */
+	city String,
+    /** the organisation country */
+	country String,
+    /** the organisation name */
+	name String,
+    /** the organisation register date */
+	registerDate LocalDate,
+    /** the organisation status */
+	status Integer,
+    /** the organisation zipCode */
+	zipCode String,
+    /** the organisation individual */
+	individual Boolean,
+}
 
+entity Price {
+	/** the Price identifier */
+	stripeId String,
+    /** the Price nickname */
+    nickname String,
+    /** the Price product identifier */
+    productId String,
+}
+
+relationship OneToMany {
+	Price to Organization{organization},
+}
+
+relationship OneToMany {
+	StripeSubscription to Price{price},
+}
+
+entity UniproxyConso {
+	subscriptionId String,
+	orgId String,
+    month Integer,
+    year Integer,
+    type TYPE,
+    conso Integer
+}
+
+entity SignatureDetails {
+	firstName String,
+    lastName String,
+    sigantureDate Instant,
+    sigantureCount Integer
+}
+
+enum TYPE {
+	SIGNATURE, SERVER, TIMESTAMP 
+}
+
+relationship OneToMany {
+	UniproxyConso to SignatureDetails
+}
+
+entity Bills {
+	customerId String,
+    customerName String,
+    customerEmail String,
+    year Integer,
+    month Integer,
+    periodStart Instant,
+    periodEnd Instant,
+    created Instant,
+    send Instant,
+    dueDate Instant,
+    amountDue Integer,
+    total Integer,
+    tax Integer,
+    totalDiscountAmounts Integer,
+    totalTaxAmounts Integer,
+    url String,
+    pdfUrl String,
+}
 
 // Set pagination options
-paginate BillingStripeLink, BillingStripeLink with pagination
+paginate BillingStripeLink, BillingStripeLink, StripeSubscription, UniproxyConso, Bills with pagination
 
 // Use Data Transfert Objects (DTO)
 // dto * with mapstruct

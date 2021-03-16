@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span>Uniproxy Consos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-uniproxy-conso" [routerLink]="['/uniproxy-conso/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Uniproxy Conso
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="uniproxyConsos?.length === 0">
+        <span>No uniproxyConsos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="uniproxyConsos && uniproxyConsos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subscriptionId"><span>Subscription Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orgId"><span>Org Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="month"><span>Month</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="year"><span>Year</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span>Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="conso"><span>Conso</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let uniproxyConso of uniproxyConsos ;trackBy: trackId">
+                    <td><a [routerLink]="['/uniproxy-conso', uniproxyConso.id, 'view']">{{ uniproxyConso.id }}</a></td>
+                    <td>{{ uniproxyConso.subscriptionId }}</td>
+                    <td>{{ uniproxyConso.orgId }}</td>
+                    <td>{{ uniproxyConso.month }}</td>
+                    <td>{{ uniproxyConso.year }}</td>
+                    <td>{{ uniproxyConso.type }}</td>
+                    <td>{{ uniproxyConso.conso }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/uniproxy-conso', uniproxyConso.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/uniproxy-conso', uniproxyConso.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(uniproxyConso)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="uniproxyConsos && uniproxyConsos.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
