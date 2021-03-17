@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stripeSubscription">
+            <h2><span>Stripe Subscription</span> {{ stripeSubscription.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span ngbTooltip="the stripe customer identifier">Stripe Id</span></dt>
+                <dd>
+                    <span>{{ stripeSubscription.stripeId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the stripe email of the customer">Stripe Email</span></dt>
+                <dd>
+                    <span>{{ stripeSubscription.stripeEmail }}</span>
+                </dd>
+                <dt><span ngbTooltip="the taxeRate for this customer">Taxe Rate</span></dt>
+                <dd>
+                    <span>{{ stripeSubscription.taxeRate }}</span>
+                </dd>
+                <dt><span ngbTooltip="migration Date">Migrate At</span></dt>
+                <dd>
+                    <span>{{ stripeSubscription.migrateAt }}</span>
+                </dd>
+                <dt><span ngbTooltip="migration update Date">Updated At</span></dt>
+                <dd>
+                    <span>{{ stripeSubscription.updatedAt }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stripe-subscription', stripeSubscription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

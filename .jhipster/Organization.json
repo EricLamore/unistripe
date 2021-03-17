@@ -1,0 +1,70 @@
+{
+  "name": "Organization",
+  "fields": [
+    {
+      "fieldName": "organizationId",
+      "fieldType": "String",
+      "javadoc": "the organisation identifier"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String",
+      "javadoc": "the organisation address"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "javadoc": "the organisation city"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String",
+      "javadoc": "the organisation country"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "javadoc": "the organisation name"
+    },
+    {
+      "fieldName": "registerDate",
+      "fieldType": "LocalDate",
+      "javadoc": "the organisation register date"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Integer",
+      "javadoc": "the organisation status"
+    },
+    {
+      "fieldName": "zipCode",
+      "fieldType": "String",
+      "javadoc": "the organisation zipCode"
+    },
+    {
+      "fieldName": "individual",
+      "fieldType": "Boolean",
+      "javadoc": "the organisation individual"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "price",
+      "otherEntityRelationshipName": "organization",
+      "relationshipName": "price",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210317080131",
+  "entityTableName": "organization",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
