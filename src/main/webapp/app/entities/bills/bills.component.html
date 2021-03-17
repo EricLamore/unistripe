@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span>Bills</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bills" [routerLink]="['/bills/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Bills
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bills?.length === 0">
+        <span>No bills found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bills && bills.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerId"><span>Customer Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerName"><span>Customer Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerEmail"><span>Customer Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="year"><span>Year</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="month"><span>Month</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="periodStart"><span>Period Start</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="periodEnd"><span>Period End</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="created"><span>Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="send"><span>Send</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dueDate"><span>Due Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amountDue"><span>Amount Due</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="total"><span>Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tax"><span>Tax</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalDiscountAmounts"><span>Total Discount Amounts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalTaxAmounts"><span>Total Tax Amounts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="url"><span>Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pdfUrl"><span>Pdf Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bills of bills ;trackBy: trackId">
+                    <td><a [routerLink]="['/bills', bills.id, 'view']">{{ bills.id }}</a></td>
+                    <td>{{ bills.customerId }}</td>
+                    <td>{{ bills.customerName }}</td>
+                    <td>{{ bills.customerEmail }}</td>
+                    <td>{{ bills.year }}</td>
+                    <td>{{ bills.month }}</td>
+                    <td>{{ bills.periodStart | date:'medium' }}</td>
+                    <td>{{ bills.periodEnd | date:'medium' }}</td>
+                    <td>{{ bills.created | date:'medium' }}</td>
+                    <td>{{ bills.send | date:'medium' }}</td>
+                    <td>{{ bills.dueDate | date:'medium' }}</td>
+                    <td>{{ bills.amountDue }}</td>
+                    <td>{{ bills.total }}</td>
+                    <td>{{ bills.tax }}</td>
+                    <td>{{ bills.totalDiscountAmounts }}</td>
+                    <td>{{ bills.totalTaxAmounts }}</td>
+                    <td>{{ bills.url }}</td>
+                    <td>{{ bills.pdfUrl }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bills', bills.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bills', bills.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bills)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="bills && bills.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

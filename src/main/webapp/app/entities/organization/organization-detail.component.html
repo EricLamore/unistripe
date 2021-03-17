@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="organization">
+            <h2><span>Organization</span> {{ organization.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span ngbTooltip="the organisation identifier">Organization Id</span></dt>
+                <dd>
+                    <span>{{ organization.organizationId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation address">Address</span></dt>
+                <dd>
+                    <span>{{ organization.address }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation city">City</span></dt>
+                <dd>
+                    <span>{{ organization.city }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation country">Country</span></dt>
+                <dd>
+                    <span>{{ organization.country }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation name">Name</span></dt>
+                <dd>
+                    <span>{{ organization.name }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation register date">Register Date</span></dt>
+                <dd>
+                    <span>{{ organization.registerDate }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation status">Status</span></dt>
+                <dd>
+                    <span>{{ organization.status }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation zipCode">Zip Code</span></dt>
+                <dd>
+                    <span>{{ organization.zipCode }}</span>
+                </dd>
+                <dt><span ngbTooltip="the organisation individual">Individual</span></dt>
+                <dd>
+                    <span>{{ organization.individual }}</span>
+                </dd>
+                <dt><span>Price</span></dt>
+                <dd>
+                    <div *ngIf="organization.price">
+                        <a [routerLink]="['/price', organization.price?.id, 'view']">{{ organization.price?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/organization', organization.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
