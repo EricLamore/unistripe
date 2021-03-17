@@ -30,6 +30,30 @@ import { RouterModule } from '@angular/router';
         loadChildren: () =>
           import('./product-rate-plan-price-link/product-rate-plan-price-link.module').then(m => m.UnistripeProductRatePlanPriceLinkModule),
       },
+      {
+        path: 'stripe-subscription',
+        loadChildren: () => import('./stripe-subscription/stripe-subscription.module').then(m => m.UnistripeStripeSubscriptionModule),
+      },
+      {
+        path: 'organization',
+        loadChildren: () => import('./organization/organization.module').then(m => m.UnistripeOrganizationModule),
+      },
+      {
+        path: 'price',
+        loadChildren: () => import('./price/price.module').then(m => m.UnistripePriceModule),
+      },
+      {
+        path: 'uniproxy-conso',
+        loadChildren: () => import('./uniproxy-conso/uniproxy-conso.module').then(m => m.UnistripeUniproxyConsoModule),
+      },
+      {
+        path: 'signature-details',
+        loadChildren: () => import('./signature-details/signature-details.module').then(m => m.UnistripeSignatureDetailsModule),
+      },
+      {
+        path: 'bills',
+        loadChildren: () => import('./bills/bills.module').then(m => m.UnistripeBillsModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
