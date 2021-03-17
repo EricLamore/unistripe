@@ -1,0 +1,41 @@
+{
+  "name": "SignatureDetails",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sigantureDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "sigantureCount",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "uniproxyConso",
+      "otherEntityRelationshipName": "signatureDetails",
+      "relationshipName": "uniproxyConso",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210317080431",
+  "entityTableName": "signature_details",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

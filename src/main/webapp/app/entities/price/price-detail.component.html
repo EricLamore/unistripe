@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="price">
+            <h2><span>Price</span> {{ price.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span ngbTooltip="the Price identifier">Stripe Id</span></dt>
+                <dd>
+                    <span>{{ price.stripeId }}</span>
+                </dd>
+                <dt><span ngbTooltip="the Price nickname">Nickname</span></dt>
+                <dd>
+                    <span>{{ price.nickname }}</span>
+                </dd>
+                <dt><span ngbTooltip="the Price product identifier">Product Id</span></dt>
+                <dd>
+                    <span>{{ price.productId }}</span>
+                </dd>
+                <dt><span>Subscription</span></dt>
+                <dd>
+                    <div *ngIf="price.subscription">
+                        <a [routerLink]="['/stripe-subscription', price.subscription?.id, 'view']">{{ price.subscription?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/price', price.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
